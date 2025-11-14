@@ -30,3 +30,9 @@ glmm_model <- glmer.nb(AECOPD ~ Time + Group + (1 | ID), data = patient_data)
 summary(glmm_model)
 
 # End of script
+# 画一个箱线图展示两组 mPAP 的差异
+ggplot(patient_data, aes(x = Group, y = mPAP, fill = Group)) +
+  geom_boxplot() +
+  labs(title = "mPAP Distribution by Group", x = "Group", y = "mPAP") +
+  theme_minimal()
+# 保存图形
